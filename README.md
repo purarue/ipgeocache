@@ -26,11 +26,11 @@ After setting the `IPINFO_TOKEN` environment variable:
 ```python
 >>> import ipgeocache, logzero
 >>> ipgeocache.get("8.8.8.8", logger=logzero.logger)["hostname"]
-[D 200906 17:56:31 __init__:62] Cache Miss: 8.8.8.8, requesting and writing to /home/sean/.local/share/ipgeocache/8.8.8.8
+[D 200906 17:56:31 __init__:62] Cache Miss: 8.8.8.8, requesting and writing to /home/username/.local/share/ipgeocache/8.8.8.8
 'dns.google'
 
 >>> ipgeocache.get("8.8.8.8", logger=logzero.logger)["hostname"]
-[D 200906 17:56:35 __init__:58] Cache Hit: 8.8.8.8, reading /home/sean/.local/share/ipgeocache/8.8.8.8
+[D 200906 17:56:35 __init__:58] Cache Hit: 8.8.8.8, reading /home/username/.local/share/ipgeocache/8.8.8.8
 'dns.google'
 
 >>> ipgeocache.get("8.8.8.8")
@@ -45,7 +45,7 @@ After setting the `IPINFO_TOKEN` environment variable:
  'timezone': 'America/Los_Angeles'}
 ```
 
-Purpose is to just be a thin wrapper that caches this info, so I don't have to think about it for my [random projects](https://github.com/seanbreckenridge/HPI#readme).
+Purpose is to just be a thin wrapper that caches this info, so I don't have to think about it for my [random projects](https://github.com/purarue/HPI#readme).
 
 The full function signature is:
 
