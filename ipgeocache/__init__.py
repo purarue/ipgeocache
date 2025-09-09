@@ -5,7 +5,7 @@ import warnings
 import logging
 
 from pathlib import Path
-from typing import Optional, Dict, Any, Tuple
+from typing import Optional, Any
 from functools import lru_cache
 
 import requests
@@ -13,7 +13,7 @@ import requests
 CACHE_DIR_NAME: str = "ipgeocache"
 BASE_URL: str = "https://ipinfo.io/{}"
 
-Json = Dict[str, Any]
+Json = dict[str, Any]
 
 
 USER_DATA_DIR: str = os.environ.get(
@@ -63,7 +63,7 @@ def _slugify_ip(ip: str) -> str:
 
 def get_from_cache(
     ip_address: str, cache_dir: Path, logger: Optional[logging.Logger]
-) -> Tuple[Path, Optional[Json]]:
+) -> tuple[Path, Optional[Json]]:
     """
     Return the expected cache path, and any data if it exists
     """
@@ -74,7 +74,7 @@ def get_from_cache(
         cache_target = cache_dir / _slugify_ip(ip_address)
     if cache_target.exists():
         if logger is not None:
-            logger.debug("Cache Hit: {}, reading {}".format(ip_address, cache_target))
+            logger.debug(f"Cache Hit: {ip_address}, reading {cache_target}")
         ipinfo: Json = json.loads(cache_target.read_text())
         return cache_target, ipinfo
     return cache_target, None
@@ -94,7 +94,7 @@ def get_from_cache_or_request(
             logger.debug(f"Cache Miss: {ip_address}, requesting...")
         resp = requests.get(
             BASE_URL.format(ip_address),
-            headers={"Authorization": "Bearer {}".format(ipinfo_token)},
+            headers={"Authorization": f"Bearer {ipinfo_token}"},
         )
         resp.raise_for_status()
         resp_json: Json = resp.json()

@@ -1,6 +1,6 @@
 ## ipgeocache
 
-[![PyPi version](https://img.shields.io/pypi/v/ipgeocache.svg)](https://pypi.python.org/pypi/ipgeocache) [![Python 3.9|3.10|3.11|3.12|3.13](https://img.shields.io/pypi/pyversions/ipgeocache.svg)](https://pypi.python.org/pypi/ipgeocache) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![PyPi version](https://img.shields.io/pypi/v/ipgeocache.svg)](https://pypi.python.org/pypi/ipgeocache) [![Python 3.10|3.11|3.12|3.13](https://img.shields.io/pypi/pyversions/ipgeocache.svg)](https://pypi.python.org/pypi/ipgeocache) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A small cache layer for IP geolocation info.
 
@@ -13,7 +13,7 @@ If that IP has been requested before, it returns the information from cache. Els
 
 ### Installation
 
-Requires `python3.9+`
+Requires `python3.10+`
 
 To install with pip, run:
 
