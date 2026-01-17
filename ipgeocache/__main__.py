@@ -1,6 +1,5 @@
 import click
 
-from typing import Optional
 
 from . import get as get_ip_info
 from .printers import default_printer, json_printer

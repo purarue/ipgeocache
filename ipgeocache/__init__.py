@@ -5,7 +5,7 @@ import warnings
 import logging
 
 from pathlib import Path
-from typing import Optional, Any
+from typing import Any
 from functools import lru_cache
 
 import requests
