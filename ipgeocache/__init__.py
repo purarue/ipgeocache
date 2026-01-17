@@ -22,7 +22,7 @@ USER_DATA_DIR: str = os.environ.get(
 
 
 @lru_cache(1)
-def get_cache_dir(passed_cache: Optional[str] = None) -> Path:
+def get_cache_dir(passed_cache: str | None = None) -> Path:
     """
     Uses the cache directory given by the user,
     $IPGEOCACHE_DIR, else uses the default location
@@ -41,7 +41,7 @@ def get_cache_dir(passed_cache: Optional[str] = None) -> Path:
     return locabs
 
 
-def get_token(token: Optional[str] = None) -> str:
+def get_token(token: str | None = None) -> str:
     """
     Get the token passed by the user, else lookup in environment
     """
@@ -62,8 +62,8 @@ def _slugify_ip(ip: str) -> str:
 
 
 def get_from_cache(
-    ip_address: str, cache_dir: Path, logger: Optional[logging.Logger]
-) -> tuple[Path, Optional[Json]]:
+    ip_address: str, cache_dir: Path, logger: logging.Logger | None
+) -> tuple[Path, Json | None]:
     """
     Return the expected cache path, and any data if it exists
     """
@@ -84,7 +84,7 @@ def get_from_cache_or_request(
     ip_address: str,
     ipinfo_token: str,
     cache_dir: Path,
-    logger: Optional[logging.Logger],
+    logger: logging.Logger | None,
 ) -> Json:
     cache_target, ipinfo = get_from_cache(ip_address, cache_dir, logger)
     if ipinfo is not None:
@@ -105,9 +105,9 @@ def get_from_cache_or_request(
 
 def get(
     ip_address: str,
-    token: Optional[str] = None,
-    cache_dir: Optional[str] = None,
-    logger: Optional[logging.Logger] = None,
+    token: str | None = None,
+    cache_dir: str | None = None,
+    logger: logging.Logger | None = None,
 ) -> Json:
     """
     Get geolocation info for an IP address
